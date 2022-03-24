@@ -58,21 +58,21 @@ If you want a basic Todo app there's plenty out there
 
 How to get the  *development environment running.* ?
 
-Step 1: Cry 
-Step 2: clone our repo or copy our amazing code from github
-Step 3: In a terminal, execute this command
-                *npm install* 
-Step 4: This SHOULD install all necessary packages needed from package.json.
+- Step 1: Cry 
+- Step 2: clone our repo or copy our amazing code from github
+- Step 3: In a terminal, execute this command
+            - *npm install* 
+- Step 4: This SHOULD install all necessary packages needed from package.json.
 
 ### All done! Hopefully... 
 ---
 ## Usage
 
-Step 1: Execute in the terminal 
+- Step 1: Execute in the terminal 
                 *npm start*
 It should give an error message asking if you want to install expo globaly. Type Y. 
-Step 2: Redo step 1
-Step 3: Now you should enter a wonderfully confusing CLI for expo. Literally just press w.
+- Step 2: Redo step 1
+- Step 3: Now you should enter a wonderfully confusing CLI for expo. Literally just press w.
             *w*
 This should start a web server and open a window for you. If not control + click the port. 
 
