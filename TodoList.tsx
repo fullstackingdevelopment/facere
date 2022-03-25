@@ -7,12 +7,13 @@ export default function TodoList() {
   const inputRef = useRef();
 
   function addTodo(task: string) {
+    if (task.match(/^\s+$/) || task === '') return null;
 
     {/* Since there's no previous task in an empty state, there's this error here,
     but it's harmless as far as i know */}
     clearInput();
     setTodos(prevTasks => {
-      return [...prevTasks, task]
+      return [...prevTasks, task];
     });
   };
 
@@ -25,11 +26,20 @@ export default function TodoList() {
     <View>
       <Text>Tasks you haven't completed yet:</Text>
       <View style={styles.container}>
-        
+
         {/* Rendering the tasks on the DOM */}
         {
           todos.map((task: string) => {
-            return <Text>{task}</Text>
+            return (
+              <View>
+                <Text>{task}</Text>
+
+                {/* The delete button for the task */}
+                <View style={styles.delButton}>
+                  <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
+                </View>
+              </View>
+            );
           })
         }
       </View>
@@ -39,7 +49,7 @@ export default function TodoList() {
 
       {/* The button that adds new tasks to the 'todos' state */}
       {/* I don't know why these errors exist */}
-      <View style={styles.button} onClick={() => addTodo(inputRef.current.value)}>
+      <View style={styles.addButton} onClick={() => addTodo(inputRef.current.value)}>
         <MaterialIcons name='keyboard-arrow-up' size={24} color='black'></MaterialIcons>
       </View>
     </View>
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 10,
   },
-  button: {
+  addButton: {
     height: 30,
     width: 30,
     borderRadius: 5,
@@ -59,4 +69,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-})
+  delButton: {
+    height: 20,
+    width: 20,
+    borderRadius: 5,
+    backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
