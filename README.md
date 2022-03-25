@@ -14,7 +14,12 @@ If you want a basic Todo app there's plenty out there
 ## Table of Contents 
 
 - [Description](#description)
+- [ListOfTechnologies](#ListOfTechnologies)
+    -[Environment](#Environment)
+    -[Frontend](#Frontend)
+    -[Backend](#Backend)
 - [Learning resources](#learning-resources-in-order-of-importance)
+- [Learning Graphics](#learninggraphics)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
@@ -46,13 +51,31 @@ If you want a basic Todo app there's plenty out there
 - What did you learn?
     - Tbd.
 
+---
+# ListOfTechnologies
+
+# Environment
+- NodeJS ( API )
+- NPM ( Package managment )
+- Expo Cli ()
+- Andriod/IOS Emulator
+# Frontend
+- React Native ( Framework )
+- Expo ( Framework )
+- TypeScript ( programming language)
+- Functional Components and hooks ( State managment)
+- GraphQL ( Queries )
+- React Navigation ( navigate screens)
+- Appolo Client ( handle caching / global )
+# Backend
+---
 # Learning resources in order of importance: 
 - [Start Devpost](https://www.youtube.com/watch?v=vCa7QFFthfU)
 - [Git basics](https://www.youtube.com/watch?v=USjZcfj8yxE)
 - [Git hub](https://www.youtube.com/watch?v=nhNq2kIvi9s)
-- [Tiger graph get started](https://www.youtube.com/playlist?list=PLq4l3NnrSRp6VqoDA5BV95XVEHp30Eexx)
 - [Overview of React](https://www.youtube.com/watch?v=Tn6-PIqc4UM)
-- [Overview of React Native](https://www.youtube.com/watch?v=X8ipUgXH6jw)
+- [Overview of React Native](https://www.youtube.com/watch?v=gvkqT_Uoahw)
+- [How to build our stack](https://www.youtube.com/watch?v=GFQDJlVEXRg)
 
 ## Installation
 
@@ -96,9 +119,18 @@ This should start a web server and open a window for you. If not control + click
     - [Gios devpost](https://devpost.com/codingcodewhilegoofin?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
     - [JPs devpost](https://devpost.com/Josh-Piecko?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav)
 - ### Third-party assets 
+---
+# [Back to top](#Facere)
 
-- ### Tutorials
-- [Tiger graph get started](https://www.youtube.com/playlist?list=PLq4l3NnrSRp6VqoDA5BV95XVEHp30Eexx)
+# LearningGraphics
+React native flow
+![Native flow](assets/images//Reactnativeflow.png)
+
+There is no css only 
+![Native flow](assets/images/Reactnocss.png)
+
+Native feature support!
+![Native flow](assets/images/devicefeatures.png)
 ---
 ## License
 
