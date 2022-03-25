@@ -10,15 +10,22 @@ export default function TodoList() {
 
     {/* Since there's no previous task in an empty state, there's this error here,
     but it's harmless as far as i know */}
+    clearInput();
     setTodos(prevTasks => {
       return [...prevTasks, task]
     });
+  };
+
+  function clearInput() {
+    {/* I don't know why this error pops up, at least the code works */}
+    inputRef.current.value = '';
   };
 
   return (
     <View>
       <Text>Tasks you haven't completed yet:</Text>
       <View style={styles.container}>
+        
         {/* Rendering the tasks on the DOM */}
         {
           todos.map((task: string) => {
