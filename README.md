@@ -11,7 +11,8 @@ How to get the  *development environment running* ?
 - Step 1: clone this repo.
 
 `git clone https://github.com/antonio-erick/facere.git`
-- Step 2: open the directory in your terminal and type `expo start -w`
+- Step 2: open the directory in your terminal and type `npm install i expo-cli` and press enter.
+- Step 3: after `expo-cli` is installed, type `expo start -w` and press enter.
 
 ## How to Contribute
 Thank you for your interest in contributing to Facere. Please read the [Contributor Convenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) to make sure you prevent silly mistakes.
