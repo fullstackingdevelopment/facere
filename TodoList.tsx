@@ -4,11 +4,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
+  const [newTaskValue, setNewTaskValue] = useState();
   const inputRef = useRef();
-  const editInputRef = useRef();
 
   function addTodo(task: string) {
-    {/* Checking for an empty string */}
     if (task.match(/^\s+$/) || task === '') return null;
 
     {/* Since there's no previous task in an empty state, there's this error here,
@@ -21,6 +20,12 @@ export default function TodoList() {
 
   function delTodo(index: number) {
     todos.splice(index, 1);
+    setTodos([...todos]);
+  };
+
+  function modifyTodo(newValue: string, index: number) {
+    if (newValue.match(/^\s+$/) || newValue === '') return null;
+    todos.splice(index, 1, newValue);
     setTodos([...todos]);
   };
 
@@ -50,8 +55,10 @@ export default function TodoList() {
                   </View>
 
                   {/* The task editor area */}
-                  <TextInput key={index} style={styles.input} ref={editInputRef} placeholder='Modify this task'></TextInput>
-                  <View style={styles.addButton} onClick={() => console.log(editInputRef.current.value)}>
+                  <TextInput style={styles.input}
+                  onChangeText={(text: string) => setNewTaskValue(text)}
+                  placeholder='Modify this task'></TextInput>
+                  <View key={index} style={styles.addButton} onClick={() => modifyTodo(newTaskValue, index)}>
                     <MaterialIcons name='keyboard-arrow-up' size={15} color='black'></MaterialIcons>
                   </View>
                 </View>
@@ -59,6 +66,7 @@ export default function TodoList() {
             );
           })
         }
+
       </View>
 
       {/* The input area to create new tasks */}
