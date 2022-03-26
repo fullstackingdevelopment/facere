@@ -5,6 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
   const inputRef = useRef();
+  const editInputRef = useRef();
 
   function addTodo(task: string) {
     {/* Checking for an empty string */}
@@ -31,18 +32,28 @@ export default function TodoList() {
   return (
     <View>
       <Text>Tasks you haven't completed yet:</Text>
-      <View style={styles.container}>
 
-        {/* Rendering the tasks on the DOM */}
+      {/* The task component */}
+      <View style={styles.taskContainer}>
+
+        {/* Rendering the tasks */}
         {
           todos.map((task: string, index: number) => {
             return (
               <View key={index}>
                 <Text>{task}</Text>
+                <View style={styles.buttonContainer}>
 
-                {/* The delete button for the task */}
-                <View key={index} style={styles.delButton} onClick={() => delTodo(index)}>
-                  <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
+                  {/* The delete button for the task */}
+                  <View key={index} style={styles.delButton} onClick={() => delTodo(index)}>
+                    <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
+                  </View>
+
+                  {/* The task editor area */}
+                  <TextInput key={index} style={styles.input} ref={editInputRef} placeholder='Modify this task'></TextInput>
+                  <View style={styles.addButton} onClick={() => console.log(editInputRef.current.value)}>
+                    <MaterialIcons name='keyboard-arrow-up' size={15} color='black'></MaterialIcons>
+                  </View>
                 </View>
               </View>
             );
@@ -63,9 +74,16 @@ export default function TodoList() {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  taskContainer: {
     margin: 20,
     padding: 10,
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+  buttonContainer: {
+    margin: 2,
+    display: 'flex',
+    flexDirection: 'row',
   },
   addButton: {
     height: 30,
@@ -78,8 +96,18 @@ const styles = StyleSheet.create({
   delButton: {
     height: 20,
     width: 20,
+    margin: 5,
     borderRadius: 5,
     backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  editButton: {
+    height: 20,
+    width: 20,
+    margin: 5,
+    borderRadius: 5,
+    backgroundColor: 'brown',
     alignItems: 'center',
     justifyContent: 'center',
   },
