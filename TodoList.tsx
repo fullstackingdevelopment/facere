@@ -4,10 +4,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([]);
+  const [newTaskValue, setNewTaskValue] = useState();
   const inputRef = useRef();
 
   function addTodo(task: string) {
-    {/* Checking for an empty string */}
     if (task.match(/^\s+$/) || task === '') return null;
 
     {/* Since there's no previous task in an empty state, there's this error here,
@@ -23,6 +23,12 @@ export default function TodoList() {
     setTodos([...todos]);
   };
 
+  function modifyTodo(newValue: string, index: number) {
+    if (newValue.match(/^\s+$/) || newValue === '') return null;
+    todos.splice(index, 1, newValue);
+    setTodos([...todos]);
+  };
+
   function clearInput() {
     {/* I don't know why this error pops up, at least the code works */}
     inputRef.current.value = '';
@@ -31,23 +37,36 @@ export default function TodoList() {
   return (
     <View>
       <Text>Tasks you haven't completed yet:</Text>
-      <View style={styles.container}>
 
-        {/* Rendering the tasks on the DOM */}
+      {/* The task component */}
+      <View style={styles.taskContainer}>
+
+        {/* Rendering the tasks */}
         {
           todos.map((task: string, index: number) => {
             return (
               <View key={index}>
                 <Text>{task}</Text>
+                <View style={styles.buttonContainer}>
 
-                {/* The delete button for the task */}
-                <View key={index} style={styles.delButton} onClick={() => delTodo(index)}>
-                  <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
+                  {/* The delete button for the task */}
+                  <View key={index} style={styles.delButton} onClick={() => delTodo(index)}>
+                    <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
+                  </View>
+
+                  {/* The task editor area */}
+                  <TextInput style={styles.input}
+                  onChangeText={(text: string) => setNewTaskValue(text)}
+                  placeholder='Modify this task'></TextInput>
+                  <View key={index} style={styles.addButton} onClick={() => modifyTodo(newTaskValue, index)}>
+                    <MaterialIcons name='keyboard-arrow-up' size={15} color='black'></MaterialIcons>
+                  </View>
                 </View>
               </View>
             );
           })
         }
+
       </View>
 
       {/* The input area to create new tasks */}
@@ -63,9 +82,16 @@ export default function TodoList() {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  taskContainer: {
     margin: 20,
     padding: 10,
+    borderStyle: 'solid',
+    borderWidth: 1,
+  },
+  buttonContainer: {
+    margin: 2,
+    display: 'flex',
+    flexDirection: 'row',
   },
   addButton: {
     height: 30,
@@ -78,8 +104,18 @@ const styles = StyleSheet.create({
   delButton: {
     height: 20,
     width: 20,
+    margin: 5,
     borderRadius: 5,
     backgroundColor: 'red',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  editButton: {
+    height: 20,
+    width: 20,
+    margin: 5,
+    borderRadius: 5,
+    backgroundColor: 'brown',
     alignItems: 'center',
     justifyContent: 'center',
   },
