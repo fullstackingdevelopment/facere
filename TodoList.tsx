@@ -7,14 +7,20 @@ export default function TodoList() {
   const inputRef = useRef();
 
   function addTodo(task: string) {
+    {/* Checking for an empty string */}
     if (task.match(/^\s+$/) || task === '') return null;
 
     {/* Since there's no previous task in an empty state, there's this error here,
     but it's harmless as far as i know */}
     clearInput();
-    setTodos(prevTasks => {
+    setTodos((prevTasks: string[]) => {
       return [...prevTasks, task];
     });
+  };
+
+  function delTodo(index: number) {
+    todos.splice(index, 1);
+    setTodos([...todos]);
   };
 
   function clearInput() {
@@ -29,13 +35,13 @@ export default function TodoList() {
 
         {/* Rendering the tasks on the DOM */}
         {
-          todos.map((task: string) => {
+          todos.map((task: string, index: number) => {
             return (
-              <View>
+              <View key={index}>
                 <Text>{task}</Text>
 
                 {/* The delete button for the task */}
-                <View style={styles.delButton}>
+                <View key={index} style={styles.delButton} onClick={() => delTodo(index)}>
                   <MaterialIcons name='arrow-back' size={15} color='black'></MaterialIcons>
                 </View>
               </View>
@@ -45,7 +51,7 @@ export default function TodoList() {
       </View>
 
       {/* The input area to create new tasks */}
-      <TextInput ref={inputRef} placeholder='Add a todo'></TextInput>
+      <TextInput style={styles.input} ref={inputRef} placeholder='Add a todo'></TextInput>
 
       {/* The button that adds new tasks to the 'todos' state */}
       {/* I don't know why these errors exist */}
@@ -76,5 +82,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    margin: 5,
+    borderRadius: 3,
+    borderStyle: 'solid',
+    borderWidth: 1,
   },
 });
