@@ -12,7 +12,9 @@
   "dependencies": {
     "ar-core-react-native": "^1.2.4",
     "expo": "~44.0.0",
+    "expo-cli": "^5.3.0",
     "expo-status-bar": "~1.2.0",
+    "i": "^0.3.7",
     "mongodb": "^4.4.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
