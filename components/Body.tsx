@@ -14,5 +14,7 @@ export default function Body() {
 const styles = StyleSheet.create({
   bodyContainer: {
     height: '60%',
+    padding: '20px',
+    paddingTop: 0,
   }
 })

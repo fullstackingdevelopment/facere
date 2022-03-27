@@ -4,12 +4,12 @@ import TodoCard from './TodoCard';
 export default function TodoList() {
   return (
     <View>
-      <Text style={styles.Todo}>/ Github</Text>
+      <Text style={styles.Todo}>/ GITHUB</Text>
       <View style={styles.TodoList}>
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
+        <TodoCard title="JOHN69/CC" status="unchanged" />
+        <TodoCard title="WEEGEE/TEST" />
+        <TodoCard title="WEEGEE/TEST" />
+        <TodoCard title="WEEGEE/TEST" />
       </View>
     </View>
   );
@@ -17,9 +17,11 @@ export default function TodoList() {
 
 const styles = StyleSheet.create({
   Todo: {
-    paddingTop: 40,
+    paddingTop: 20,
     paddingBottom: 20,
     fontSize: 40,
+    letterSpacing: '4px',
+    fontFamily: 'Bantayog',
     color: '#E6DED4',
   },
   TodoList: {
