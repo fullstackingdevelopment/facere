@@ -1,19 +1,18 @@
 import { View, StyleSheet } from 'react-native';
-import TodoCard from './TodoCard';
+import TodoList from './TodoList';
 
 export default function Body() {
   return (
     <View style={styles.bodyContainer}>
-      <TodoCard />
-      <TodoCard />
-      <TodoCard />
+      <TodoList />
+      <TodoList />
+      <TodoList />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   bodyContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    height: '60%',
   }
 })
