@@ -15,6 +15,10 @@ export default function App() {
 
 const styles = StyleSheet.create({
   rootContainer: {
-    backgroundColor: '#1B1A1A',
+    height: '100%',
+    paddingTop: 10,
+    paddingRight: 40,
+    paddingLeft: 40,
+    backgroundColor: '#393E41',
   }
 })

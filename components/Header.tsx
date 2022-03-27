@@ -5,18 +5,25 @@ import "../assets/fonts/fonts.css";
 export default function Header() {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Facere</Text>
+      <Text style={styles.date}>SAT, MARCH 26</Text>
+      <Text style={styles.header}>Hi, John</Text>
+      <Text style={styles.home}>/ HOME</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: 'grey',
-  },
   header: {
     fontFamily: "Bantayog",
-    fontSize: 30,
-    color: 'white',
+    fontSize: 50,
+    color: '#E6DED4',
+  },
+  date: {
+    fontSize: 25,
+    color: '#E6DED4'
+  },
+  home: {
+    fontSize: 15,
+    color: '#E6DED4',
   },
 })
