@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "689188800851",
+    "project_id": "facere-174c8",
+    "storage_bucket": "facere-174c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689188800851:android:efb372e464e31a0298f9a6",
+        "android_client_info": {
+          "package_name": "com.faceredev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689188800851-a7eoet9ic1ahq645rsb18kjk2oagv2ju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJYkrx_GE91udaywc8A6OAu6W6-m3b-XE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "689188800851-a7eoet9ic1ahq645rsb18kjk2oagv2ju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
