@@ -1,0 +1,11 @@
+@font-face {
+	font-family: "Bantayong";
+	src: url("/fonts/Bantayong-Light.otf") format("opentype");
+	font-weight: lighter;
+}
+
+@font-face {
+	font-family: "Bantayong";
+	src: url("/fonts/Bantayong-Regular.otf") format("opentype");
+	font-weight: 500;
+}

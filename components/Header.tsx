@@ -1,4 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
+import "../assets/fonts/Bantayog-Regular.otf";
+import "../assets/fonts/fonts.css";
 
 export default function Header() {
   return (
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'grey',
   },
   header: {
-    padding: 10,
+    fontFamily: "Bantayog",
     fontSize: 30,
     color: 'white',
   },

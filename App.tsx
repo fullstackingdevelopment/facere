@@ -1,14 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Header from './components/Header';
-import Article from './components/Article';
+import Body from './components/Body';
 
 export default function App() {
   return (
-    <View>
+    <View style={styles.rootContainer}>
       <Header />
-      <Article />
+      <Body />
       <StatusBar />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  rootContainer: {
+    backgroundColor: '#1B1A1A',
+  }
+})
