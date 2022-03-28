@@ -1,16 +1,22 @@
+//Tsx DEP
 import { StatusBar } from 'expo-status-bar';
 import { View, StyleSheet } from 'react-native';
 import Header from './components/Header';
 import Body from './components/Body';
 
-// Import the functions you need from the SDKs you need
+// FIREBASE DEP
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {useCollection} from 'react-firebase-hooks/firestore';
+
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyAB2f5R_efUkdP5W1pgas4QM0aqvIWJs1s",
   authDomain: "facere-174c8.firebaseapp.com",
@@ -24,6 +30,8 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 
 export default function App() {
   return (
