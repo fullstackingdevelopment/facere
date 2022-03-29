@@ -5,20 +5,21 @@ import { MaterialIcons, AntDesign } from '@expo/vector-icons';
 type TodoCardProps = {
   title: string,
   status: string,
-}
+  desc: string,
+};
 
-let todoCard = ({ title, status }: TodoCardProps) => {
+export default function todoCard({ title = 'test', status, desc }: TodoCardProps) {
 
   return (
     <View style={styles.container}>
       <View style={styles.cardHeader}>
         <AntDesign style={styles.vendorLogo} name="github" size={24} color="black" />
-        <Text style={[styles.taskTitle, styles.baseFont]}>{title}</Text>
+        <Text style={[styles.taskTitle, styles.baseFont]}>{ title }</Text>
       </View>
       <View style={styles.cardBody}>
         <Text style={[styles.task, styles.baseFont]}>src/main.rs <Text style={[styles.status, styles.baseFont]}>{status}</Text></Text>
       </View>
-      <Text style={[styles.baseFont, styles.taskDescription]}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, repellat.</Text>
+      <Text style={[styles.baseFont, styles.taskDescription]}>{ desc }</Text>
     </View>
   );
 };
@@ -64,5 +65,3 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   }
 });
-
-export default todoCard;
