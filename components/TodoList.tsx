@@ -3,44 +3,75 @@ import { View, Text, TextInput, StyleSheet } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import TodoCard from './TodoCard';
 
-export default function TodoList({ title }) {
-  {/* The states for the title and description of a task */}
-  const [newTitle, setNewTitle] = useState();
-  const [newDesc, setNewDesc] = useState();
+type TodoListProps = {
+  title: string,
+  removeMethod: Function,
+};
 
+export default function TodoList({ title, removeMethod }: TodoListProps) {
+  {/* The states for the title and description of a task */}
+  const [newTitle, setNewTitle] = useState('');
+  const [newDesc, setNewDesc] = useState('');
   {/* The state for the task itself */}
   const [tasks, setTasks] = useState([]);
+  {/* The state for 'createTaskContainer' */}
+  const [visibleMenu, setVisibleMenu] = useState(false);
 
-  function addTask() {
-    setTasks([...tasks, [newTitle, newDesc]]);
+  function createNewTask() {
+    setTasks((currTasks) => {
+      return [...currTasks, [newTitle, newDesc]];
+    });
+  };
+
+  function removeTask(index: number) {
+    tasks.splice(index, 1);
+    setTasks((currTasks) => {
+      return [...tasks];
+    });
+  };
+
+  function showCreateTaskMenu() {
+    setVisibleMenu(!visibleMenu);
   };
 
   return (
-    <View>
-      <View style={styles.listHead}>
+    <View style={styles.TodoList}>
+      {/* The create task menu */}
+      {
+        !visibleMenu ? null :
+        (
+          <View style={styles.createTaskContainer}>
+            <TextInput style={styles.input} placeholder='Add a new task' onChangeText={(text: string) => setNewTitle(text)}/>
+            <TextInput style={styles.desc} placeholder='Add a description' onChangeText={(text: string) => setNewDesc(text)} />
+            <Ionicons style={styles.button} onClick={() => createNewTask()} name='md-checkmark-circle' size={24} color='green' />
+          </View>
+        )
+      }
+      {/* The head of the to-do list */}
+      <View style={styles.TodoListHead}>
         <Text style={styles.Todo}>/ {title}</Text>
+        <Ionicons style={styles.button} onClick={() => showCreateTaskMenu()} name='add-circle' size={24} color='green' />
+        <Ionicons style={styles.button} onClick={() => removeMethod()} name='remove-circle' size={24} color='red' />
       </View>
-      <View style={styles.TodoList}>
+      {/* Rendering the "Todo" State */}
+      <View style={styles.Todos}>
         {
           tasks.map((task: object, index: number) => {
             return (
-              <TodoCard key={index} title={task[0]} desc={task[1]} />
+              <TodoCard key={index} title={task[0]} desc={task[1]} removeMethod={() => removeTask(index)}/>
             )
           })
         }
       </View>
-      <View style={styles.inputContainer}>
-          <TextInput style={styles.input} placeholder='Add a new task' onChangeText={(text: string) => setNewTitle(text)} />
-          <TextInput style={styles.desc} placeholder='Add a description' onChangeText={(text: string) => setNewDesc(text)} />
-          <View style={styles.button} onClick={() => addTask()}>
-            <Ionicons name='md-checkmark-circle' size={24} color='green' />
-          </View>
-        </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  TodoListHead: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   Todo: {
     paddingTop: 20,
     paddingBottom: 20,
@@ -49,14 +80,17 @@ const styles = StyleSheet.create({
     fontFamily: 'Bantayog',
     color: '#E6DED4',
   },
-  TodoList: {
+  Todos: {
     display: 'flex',
     flexDirection: 'row',
   },
-  inputContainer: {
+  button: {
+    marginTop: 30,
+    marginLeft: 20,
+  },
+  createTaskContainer: {
     width: 150,
-    display: 'flex',
-    flexDirection: 'column',
+    marginTop: 30,
     backgroundColor: '#E6DED4',
   },
   input: {

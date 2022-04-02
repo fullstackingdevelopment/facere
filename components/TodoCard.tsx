@@ -1,24 +1,26 @@
 import React, { useState, useRef } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 type TodoCardProps = {
   title: string,
   status: string,
   desc: string,
+  removeMethod: Function,
 };
 
-export default function todoCard({ title = 'test', status, desc }: TodoCardProps) {
-
+export default function todoCard({ title = 'test', status = 'unchanged', desc, removeMethod }: TodoCardProps) {
   return (
     <View style={styles.container}>
       <View style={styles.cardHeader}>
-        <AntDesign style={styles.vendorLogo} name="github" size={24} color="black" />
+        {/* <AntDesign style={styles.vendorLogo} name="github" size={24} color="black" /> */}
+        {/* The remove task button */}
+        <Ionicons onClick={() => removeMethod()} name='remove-circle' size={24} color='red' />
         <Text style={[styles.taskTitle, styles.baseFont]}>{ title }</Text>
       </View>
-      <View style={styles.cardBody}>
+      {/*<View style={styles.cardBody}>
         <Text style={[styles.task, styles.baseFont]}>src/main.rs <Text style={[styles.status, styles.baseFont]}>{status}</Text></Text>
-      </View>
+      </View>*/}
       <Text style={[styles.baseFont, styles.taskDescription]}>{ desc }</Text>
     </View>
   );
@@ -37,7 +39,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   cardHeader: {
-    display: 'inline',
+    display: 'flex',
+    flexDirection: 'row',
   },
   taskTitle: {
     letterSpacing: 2,
