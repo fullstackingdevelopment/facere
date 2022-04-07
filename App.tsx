@@ -6,20 +6,11 @@ import Body from './components/Body';
 
 export default function App() {
   return (
-    <View style={styles.rootContainer}>
-      <Header />
+    //View is platform independent! 
+    <View>
       <Body />
       <StatusBar />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  rootContainer: {
-    height: '100%',
-    paddingTop: 10,
-    paddingRight: 40,
-    paddingLeft: 40,
-    backgroundColor: '#393E41',
-  }
-})

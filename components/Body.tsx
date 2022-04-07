@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 
 export default function Body() {
   return (
-    <View style={styles.bodyContainer}>
+    <View >
       <TodoList />
       <TodoList />
       <TodoList />
@@ -11,8 +11,3 @@ export default function Body() {
   );
 };
 
-const styles = StyleSheet.create({
-  bodyContainer: {
-    height: '60%',
-  }
-})
