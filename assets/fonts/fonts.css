@@ -9,3 +9,7 @@
 	src: url("/fonts/Bantayong-Regular.otf") format("opentype");
 	font-weight: 500;
 }
+
+body, html {
+  font-family: 'Bantayong';
+}
