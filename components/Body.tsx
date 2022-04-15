@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 
 export default function Body() {
   return (
-    <View style={styles.bodyContainer}>
+    <View >
       <TodoList />
       <TodoList />
       <TodoList />
