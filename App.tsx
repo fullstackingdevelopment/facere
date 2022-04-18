@@ -1,6 +1,6 @@
 //Tsx DEP
 import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 // Components
 import Header from './components/Header';
@@ -8,14 +8,20 @@ import Body from './components/Body';
 
 // Fonts
 import "./assets/fonts/Bantayog-Regular.otf";
-import "./assets/fonts/fonts.css";
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header />
-      <Body />
-      <StatusBar />
+     <Text style={styles.maintxt}>Hello</Text>
+     <Text style={styles.maintxt}>Hello</Text>
+     <Text style={styles.maintxt}>Hello</Text>
+     <Text style={styles.maintxt}>Hello</Text>
+     <Text style={styles.maintxt}>Hello</Text>
+     <Text style={styles.maintxt}>Hello</Text>
+      
+      
+    
     </View>
   );
 }
@@ -27,5 +33,8 @@ const styles = StyleSheet.create({
     paddingRight: 40,
     paddingLeft: 40,
     backgroundColor: '#1B1A1A',
+  },
+  maintxt: {
+    color:'white',
   }
 })

@@ -30,14 +30,14 @@ const styles = StyleSheet.create({
     fontSize: 50,
   },
   date: {
-    letterSpacing: '4px',
+    letterSpacing: 4,
   },
   location: {
     fontSize: 15,
-    letterSpacing: '8px',
+    letterSpacing: 8,
   },
   menuItems: {
-    display: 'inline',
+   
     marginTop: 10,
   }
 })

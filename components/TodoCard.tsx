@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   status: {
     fontSize: 12,
-    cursor: 'pointer',
+    
     color: 'red',
     marginTop: 2,
     letterSpacing: 2,
