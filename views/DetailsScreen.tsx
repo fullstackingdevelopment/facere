@@ -10,7 +10,11 @@ import { Button, Image,View, StyleSheet, Text, SafeAreaView, TouchableWithoutFee
 import Header from '../components/Header';
 import Body from '../components/Body';
 
-export default function DetailsScreen() {
+import { StackActions } from '@react-navigation/native';
+
+const popAction = StackActions.pop(1);
+
+export default function DetailsScreen(navigation) {
   return (
     <SafeAreaView style={styles.container}>
       
@@ -19,6 +23,13 @@ export default function DetailsScreen() {
      <TouchableWithoutFeedback>
      <Image source={{ height:300, width:200, uri: "https://picsum.photos/200/300"}}/>
      </TouchableWithoutFeedback>
+
+     <Button
+          title="Home"
+          color= '#150D23'
+          onPress={() => navigation.dispatch(StackActions.popToTop())}
+          onClick={() => navigation.dispatch(StackActions.popToTop())}
+        />
     </SafeAreaView>
   );
 }
