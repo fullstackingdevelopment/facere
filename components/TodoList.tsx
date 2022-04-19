@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     fontSize: 40,
     letterSpacing: 4,
-    fontFamily: 'Bantayog',
+    
     color: '#E6DED4',
   },
   Todos: {

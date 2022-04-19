@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 export default function Header() {
   return (
-    <View style={styles.container}>
+    <View >
       <Text style={[styles.date, styles.baseFont]}>Sat, March 26</Text>
       <Text style={[styles.header, styles.baseFont]}>Hi, John</Text>
       <Text style={[styles.location, styles.baseFont]}>/ HOME</Text>
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     padding: '20px',
   },
   baseFont: {
-    fontFamily: 'Bantayog',
+    
     color: '#E6DED4',
     fontWeight: 'bold',
   },

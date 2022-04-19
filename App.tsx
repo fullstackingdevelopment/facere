@@ -1,40 +1,39 @@
-//Tsx DEP
-import { StatusBar } from 'expo-status-bar';
-import { View, StyleSheet, Text } from 'react-native';
+import * as React from 'react';
 
-// Components
-import Header from './components/Header';
-import Body from './components/Body';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// Fonts
-import "./assets/fonts/Bantayog-Regular.otf";
+// LOCAL DEP
+import DetailsScreen from './views/DetailsScreen';
+import HomeScreen from './views/HomeScreen';
 
+import { Button, Image,View, StyleSheet, Text, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 
-export default function App() {
+function LogoTitle() {
   return (
-    <View style={styles.container}>
-     <Text style={styles.maintxt}>Hello</Text>
-     <Text style={styles.maintxt}>Hello</Text>
-     <Text style={styles.maintxt}>Hello</Text>
-     <Text style={styles.maintxt}>Hello</Text>
-     <Text style={styles.maintxt}>Hello</Text>
-     <Text style={styles.maintxt}>Hello</Text>
-      
-      
     
-    </View>
+    <Image
+      style={{ width: 60, height:60 }}
+      source={require('./assets/FSDLOGO.png')}
+    />
+    
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    height: '100%',
-    paddingTop: 10,
-    paddingRight: 40,
-    paddingLeft: 40,
-    backgroundColor: '#1B1A1A',
-  },
-  maintxt: {
-    color:'white',
-  }
-})
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen 
+        name="FullStack-ingDevelopment" 
+        component={HomeScreen}
+        options={{ headerTitle: (props) => <LogoTitle {...props} /> }}
+      />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>
+  );
+}

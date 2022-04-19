@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+
 import { View, StyleSheet, TextInput } from 'react-native';
+
 import Ionicons from '@expo/vector-icons/Ionicons'
+
 import TodoList from './TodoList';
 
 export default function Body() {
@@ -17,11 +20,11 @@ export default function Body() {
   };
 
   return (
-    <View style={styles.bodyContainer}>
-      <View style={styles.createListContainer}>
+    <View >
+      <View >
         <TextInput placeholder='Add a new project' onChangeText={(text: string) => setNewList(text)}></TextInput>
         {/* The button we use to add to-do lists */}
-        <Ionicons onClick={() => addList()} name='add-circle' size={24} color='green' />
+        <Ionicons onPress={() => addList()} onClick={() => addList()} name='add-circle' size={24} color='green' />
       </View>
 
       {/* Rendering the to-do lists */}

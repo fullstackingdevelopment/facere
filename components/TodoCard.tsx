@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6DED4',
   },
   baseFont: {
-    fontFamily: 'Bantayog',
+   
     fontWeight: 'bold',
   },
   cardHeader: {

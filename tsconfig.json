@@ -3,6 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "ES6",
+    "jsx":"react-native",
     "watch": true,
     "lib": ["DOM","es2021.intl"],
     
