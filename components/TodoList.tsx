@@ -43,15 +43,15 @@ export default function TodoList({ title, removeMethod }: TodoListProps) {
           <View style={styles.createTaskContainer}>
             <TextInput style={styles.input} placeholder='Add a new task' onChangeText={(text: string) => setNewTitle(text)}/>
             <TextInput style={styles.desc} placeholder='Add a description' onChangeText={(text: string) => setNewDesc(text)} />
-            <Ionicons style={styles.button} onClick={() => createNewTask()} name='md-checkmark-circle' size={24} color='green' />
+            <Ionicons style={styles.button} onPress={() => createNewTask()} name='md-checkmark-circle' size={24} color='green' />
           </View>
         )
       }
       {/* The head of the to-do list */}
       <View style={styles.TodoListHead}>
         <Text style={styles.Todo}>/ {title}</Text>
-        <Ionicons style={styles.button} onClick={() => showCreateTaskMenu()} name='add-circle' size={24} color='green' />
-        <Ionicons style={styles.button} onClick={() => removeMethod()} name='remove-circle' size={24} color='red' />
+        <Ionicons style={styles.button} onPress={() => showCreateTaskMenu()} name='add-circle' size={24} color='green' />
+        <Ionicons style={styles.button} onPress={() => removeMethod()} name='remove-circle' size={24} color='red' />
       </View>
       {/* Rendering the "Todo" State */}
       <View style={styles.Todos}>
