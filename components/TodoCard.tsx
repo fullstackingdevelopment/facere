@@ -15,7 +15,7 @@ export default function todoCard({ title = 'test', status = 'unchanged', desc, r
       <View style={styles.cardHeader}>
         {/* <AntDesign style={styles.vendorLogo} name="github" size={24} color="black" /> */}
         {/* The remove task button */}
-        <Ionicons onClick={() => removeMethod()} name='remove-circle' size={24} color='red' />
+        <Ionicons onPress={() => removeMethod()} name='remove-circle' size={24} color='red' />
         <Text style={[styles.taskTitle, styles.baseFont]}>{ title }</Text>
       </View>
       {/*<View style={styles.cardBody}>
