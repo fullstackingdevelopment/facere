@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     padding: '20px',
   },
   baseFont: {
-    
     color: '#E6DED4',
     fontWeight: 'bold',
   },
@@ -37,7 +36,8 @@ const styles = StyleSheet.create({
     letterSpacing: 8,
   },
   menuItems: {
-   
     marginTop: 10,
-  }
-})
+    display: 'flex',
+    flexDirection: 'row',
+  },
+});
