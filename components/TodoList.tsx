@@ -8,12 +8,13 @@ type TodoListProps = {
   title: string,
   tasks: any[],
   taskHandler: Function,
+  deleteHandler: Function,
   titleHandler: Function,
   descHandler: Function,
 };
 
 export default function TodoList({ 
-  id, title, tasks, taskHandler, 
+  id, title, tasks, taskHandler, deleteHandler,
   titleHandler, descHandler }: TodoListProps) {
   {/* The state for 'createTaskContainer' */}
   const [visibleMenu, setVisibleMenu] = useState(false);
@@ -52,7 +53,7 @@ export default function TodoList({
       <View style={styles.TodoListHead}>
         <Text style={styles.Todo}>/ {title}</Text>
         <Ionicons style={styles.button} onPress={() => showCreateTaskMenu()} name='add-circle' size={24} color='green' />
-        <Ionicons style={styles.button} onPress={() => console.log('test')} name='remove-circle' size={24} color='red' />
+        <Ionicons style={styles.button} onPress={() => deleteHandler(id)} name='remove-circle' size={24} color='red' />
       </View>
       {/* Rendering the "Todo" State */}
       <View style={styles.Todos}>

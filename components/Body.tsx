@@ -79,7 +79,8 @@ export default function Body() {
               return (
                 <TodoList key={index} id={index}
                 title={list.title} tasks={list.tasks} 
-                taskHandler={addTask} titleHandler={setTaskTitle} descHandler={setTaskDesc}/>
+                taskHandler={addTask} deleteHandler={deleteList}
+                titleHandler={setTaskTitle} descHandler={setTaskDesc}/>
               )
             }
           }
