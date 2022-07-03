@@ -33,8 +33,20 @@ export default function Body() {
   };
 
   function deleteList(index: number) {
-    // I have to figure out something better
+    const newLists = {};
+    let newIndex = 0;
     lists[index] = null;
+    // Creating a new 'lists' object from non-null values
+    for (const [key, value] of Object.entries(lists)) {
+      if (value) {
+        newLists[newIndex] = {
+          title: value.title,
+          tasks: value.tasks,
+        };
+        newIndex++;
+      };
+      setLists(newLists);
+    };
   };
 
   function addTask(index: number) {
@@ -66,10 +78,6 @@ export default function Body() {
         <TextInput onChangeText={(text: string) => setListTitle(text)}
         style={{color: 'white'}} placeholder='Add a new project'/>
         <Ionicons onPress={() => addList()} name='add-circle' size={24} color='green' />
-
-        <Ionicons onPress={() => deleteList(1)} name='alert-outline' size={24} color='green' />
-        <Ionicons onPress={() => console.log(lists)} name='alert-outline' size={24} color='blue' />
-        <Ionicons onPress={() => console.log(listTitle)} name='alert-circle' size={24} color='red' />
       </View>
 
       {
