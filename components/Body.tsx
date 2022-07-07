@@ -12,23 +12,42 @@ export default function Body() {
   const [taskDesc, setTaskDesc] = useState('');
 
   function addList() {
+    const newLists = {};
     // This runs if the lists object IS empty
     if (!Object.keys(lists).length) {
-      lists['0'] = {
+      newLists['0'] = {
         title: listTitle,
         tasks: [],
       };
-      setLists(lists);
+      setLists(newLists);
     // This runs if the lists object IS NOT empty
     } else {
-      const keys = Object.keys(lists);
+      let newIndex = 0;
+      for (const [key, value] of Object.entries(lists)) {
+        newIndex++;
+        const index = key;
+        newLists[index] = {
+          title: value.title,
+          tasks: value.tasks,
+        };
+        if (newIndex === Object.keys(lists).length) {
+          newLists[newIndex] = {
+            title: value.title,
+            tasks: value.tasks,
+          };
+        };
+        setLists(newLists);
+      };
+      /*const keys = Object.keys(lists);
       const biggestIndex = keys[keys.length - 1];
       const newIndex = Number(biggestIndex) + 1;
-      lists[newIndex] = {
+      newLists[newIndex] = {
         title: listTitle,
         tasks: [],
       };
-      setLists(lists);
+      setLists((currLists) => {
+        console.log(currLists)
+      });*/
     };
   };
 
