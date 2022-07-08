@@ -32,8 +32,8 @@ export default function Body() {
         };
         if (newIndex === Object.keys(lists).length) {
           newLists[newIndex] = {
-            title: value.title,
-            tasks: value.tasks,
+            title: listTitle,
+            tasks: [],
           };
         };
         setLists(newLists);
