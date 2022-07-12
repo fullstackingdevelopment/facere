@@ -1,127 +1,86 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //EXPO DEP 
 import { StatusBar } from 'expo-status-bar';
 
 //NATIVE DEP 
-import { ScrollView,Button, Image, View, StyleSheet, Text, SafeAreaView, TouchableWithoutFeedback, Dimensions } from 'react-native';
+import { View,Text,Platform, ScrollView, StyleSheet } from 'react-native';
 
+//LOCAL DEP 
+import Navbar from '../components/HomePage/Navbar';
+import Body from '../components/HomePage/BodySection';
+import Footer from '../components/HomePage/FooterSection';
 
-let screenWidth = Dimensions.get('window').width;
+//let screenWidth = Dimensions.get('window').width;
 
 export default function HomeScreen({ navigation }) {
   return (
-    
-    <ScrollView 
-   
-    horizontal={true}
-    style={styles.contentContainer}
-    >
-      <Image
-        resizeMode="contain"
-        style={
-          [
-            styles.image, 
-            { width: screenWidth }
-        ]}
-        source={require('../assets/FSD.png')}
-      />
-      <View 
-        style={styles.header, { width: screenWidth }}
-      >
-        <Text
-        
-          style={styles.welcome}
-        >
-          FullStack-ing Development
-        </Text>
-
-        <Image
-        resizeMode="contain"
-        style={styles.randomBlock1}
-        source={require('../assets/RandomB2.png')}
-      />
-
-        <Text 
-          style={styles.welcomep}
-        >
-          The FSD team is working on multiple Full-Stack 
-          applications. 
-          Keep Scrolling right to view each app. 
-        </Text>
+    <View style={[styles.container, {
+      flexDirection: "column"
+    }]}>
+      <View style={[styles.navView]}>
+        <Navbar></Navbar>
       </View>
-
-      <View 
-        style={styles.header,{ width: screenWidth }}
-      >
-        <View style={styles.nestedViewStyle}>
-            <Text>{'     '}</Text>
-        </View>
-        <Button
-          style={styles.btn}
-          title="Facere App"
-          color= '#150D23'
-          onPress={() => navigation.navigate('Details')}
-          onClick={() =>navigation.navigate('Details')}
-        />
-        <View style={styles.nestedViewStyle}>
-            <Text>{'     '}</Text>
-        </View>
-     </View>
-    </ScrollView>
+      <View style={[styles.bodyView]} >
+        <Body></Body>
+      </View>
+      <View style={[styles.bottomView]}>
+        <Footer></Footer>
+      </View>
+    </View>
 
   );
 }
 
 const styles = StyleSheet.create({
-  header:{
+  container: {
     flex: 1,
-   
-    textAlign: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    paddingRight:5,
-    paddingLeft:5,
+    ...Platform.select({
+      android: {
+        
+      },
+      default: {
+        position: 'relative',
+        display: 'flex',
+        padding: '100px 20vw'
+       
+      }
+    })
   },
-  btn:{
-    color: '#FFFDA1',
-    backgroundColor: '#181818',
-   
-    width: '20px',
-    height: '20px',
-    paddingTop:'60%',
-    padding: '10px',
+  navView: {
+    ...Platform.select({
+      android: {
+        flex: 2,
+      },
+      default: {
+        flex: .4, 
+        backgroundColor: "white"
+      }
+    })
   },
-  image:{
-    width: 'auto',
-    height: 'auto',
-    padding: 5,
+
+  bodyView: {
+    ...Platform.select({
+      android: {
+        flex: 2,
+      },
+      default: {
+        flex: 2, 
+        backgroundColor: "darkorange"
+      }
+    })
   },
-  randomBlock1: {
-    width: '100%',
-    height: '50%',
-   
-  },
-  contentContainer: {
-    padding: 5,
-    backgroundColor: '#D31E1E',
-  },
-  welcome: {
-    flex: 1,
-    color: '#150D23',   
-    textAlign: 'center',
-    fontSize: 50,
-    fontWeight: '900',
-    paddingTop: '10%',
-  },
-  welcomep: {
-    flex: 1,
-    color: '#150D23',
-    textAlign: 'center',
-  },
-  nestedViewStyle: {
-    marginVertical: 5
+
+  bottomView: {
+    ...Platform.select({
+      android: {
+        flex: 2,
+      },
+      default: {
+        flex: 2, 
+        backgroundColor: "#04030F" 
+      }
+    })
   }
 });
+

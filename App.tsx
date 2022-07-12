@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailsScreen from './views/DetailsScreen';
 import HomeScreen from './views/HomeScreen';
 
+
 import { Linking, Button, Image,View, StyleSheet, Text, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 
 function LogoTitle(navigation) {
