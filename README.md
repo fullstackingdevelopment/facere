@@ -16,7 +16,7 @@ Install expo-cli
 npm install i expo-cli
 ```
 
-Run as localhost
+Run as localhost on a web version of the app
 ```powershell
-npm start -w (for development web)
+npm start -w
 ```
